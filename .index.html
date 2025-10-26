@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHARK TRADING - Professional Trading Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --dark-blue: #2d3748;
+            --accent-gold: #FFD700;
+            --accent-orange: #FF8C00;
+            --professional-gray: #2c3e50;
+            --light-bg: #f8f9fa;
+        }
+        
+        * {
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .professional-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            padding: 50px 40px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .professional-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange));
+        }
+        
+        .logo-container {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-logo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .company-name {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .slogan {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+        
+        .social-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-8px);
+            color: var(--accent-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .social-icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .social-name {
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .admin-btn {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 2px solid transparent;
+        }
+        
+        .admin-btn:hover {
+            background: white;
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+        
+        .stats-badge {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--professional-gray);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .social-link.instagram { background: linear-gradient(135deg, #E1306C, #F77737); }
+        .social-link.facebook { background: linear-gradient(135deg, #1877F2, #0D5FD9); }
+        .social-link.twitter { background: linear-gradient(135deg, #1DA1F2, #0D8BD9); }
+        .social-link.tiktok { background: linear-gradient(135deg, #000000, #69C9D0); }
+        .social-link.telegram { background: linear-gradient(135deg, #0088CC, #006699); }
+        .social-link.youtube { background: linear-gradient(135deg, #FF0000, #CC0000); }
+        .social-link.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
+        .social-link.linkedin { background: linear-gradient(135deg, #0077B5, #005885); }
+        .social-link.snapchat { background: linear-gradient(135deg, #FFFC00, #FFD700); color: #000; }
+        .social-link.threads { background: linear-gradient(135deg, #000000, #E1306C); }
+        
+        .floating-threads {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #000000 30%, #E1306C 70%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(225, 48, 108, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse-threads 2s infinite;
+        }
+        
+        .floating-threads:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 15px 35px rgba(225, 48, 108, 0.4);
+        }
+        
+        @keyframes pulse-threads {
+            0% { box-shadow: 0 8px 25px rgba(225, 48, 108, 0.3); }
+            50% { box-shadow: 0 8px 30px rgba(225, 48, 108, 0.6); }
+            100% { box-shadow: 0 8px 25px rgba(225, 48, 108, 0.3); }
+        }
+        
+        .news-card, .video-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .news-card:hover, .video-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-image, .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .news-content, .video-content {
+            padding: 20px;
+        }
+        
+        .news-title, .video-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .news-date, .video-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .professional-card {
+                padding: 30px 20px;
+            }
+            
+            .company-name {
+                font-size: 2.2rem;
+            }
+            
+            .slogan {
+                font-size: 1.2rem;
+            }
+            
+            .social-links-grid {
+                grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- زر الإدارة -->
+    <a href="#admin-login" class="admin-btn" data-bs-toggle="modal">
+        <i class="fas fa-cog me-1"></i>لوحة التحكم
+    </a>
+
+    <!-- عداد الزوار -->
+    <div class="stats-badge">
+        <i class="fas fa-eye me-1"></i>زوار الموقع: <span id="visitorCount">0</span>
+    </div>
+
+    <div class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <!-- البطاقة الرئيسية -->
+                <div class="professional-card">
+                    <div class="logo-container">
+                        <img id="siteLogo" src="" alt="SHARK TRADING" class="site-logo" style="display: none;">
+                    </div>
+                    
+                    <h1 class="company-name" id="siteTitle">SHARK TRADING</h1>
+                    <p class="slogan" id="siteSlogan">MAIN - Professional Trading Solutions</p>
+                    
+                    <div class="social-section">
+                        <h3 class="section-title mb-4">تابعنا على وسائل التواصل</h3>
+                        <div class="social-links-grid" id="socialLinks">
+                            <!-- سيتم ملء روابط السوشيال ميديا بالجافاسكريبت -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قسم الأخبار -->
+                <div class="professional-card">
+                    <h2 class="section-title mb-4">
+                        <i class="fas fa-newspaper me-2"></i>آخر الأخبار
+                    </h2>
+                    <div id="newsContainer">
+                        <!-- سيتم ملء الأخبار بالجافاسكريبت -->
+                    </div>
+                </div>
+
+                <!-- قسم الفيديوهات -->
+                <div class="professional-card">
+                    <h2 class="section-title mb-4">
+                        <i class="fas fa-video me-2"></i>أحدث الفيديوهات
+                    </h2>
+                    <div id="videosContainer">
+                        <!-- سيتم ملء الفيديوهات بالجافاسكريبت -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Threads Logo -->
+    <a id="floatingThreads" href="#" target="_blank" class="floating-threads" style="display: none;">
+        <i class="fab fa-threads"></i>
+    </a>
+
+    <!-- نموذج تسجيل الدخول -->
+    <div class="modal fade" id="admin-login" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">تسجيل الدخول للإدارة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">اسم المستخدم</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">كلمة المرور</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">تسجيل الدخول</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- لوحة التحكم -->
+    <div class="modal fade" id="admin-panel" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">لوحة التحكم - SHARK TRADING</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="adminContent">
+                        <!-- محتوى لوحة التحكم سيتم تحميله هنا -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
